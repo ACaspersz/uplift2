@@ -4,7 +4,7 @@ class CausesController < ApplicationController
   before_action :cause_params, only: [:create, :update]
 
     def index
-       
+      link_to 'Main', causes_path
       end
     
       def show
@@ -14,6 +14,15 @@ class CausesController < ApplicationController
       def search
         if params[:search].blank?  
           redirect_to(root_path, alert: "Empty field!") and return  
+        else  
+          @parameter = params[:search].downcase  
+          @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
+        end 
+      end
+
+      def search
+        if params[:search].blank?  
+          redirect_to(causes_path, alert: "Empty field!") and return  
         else  
           @parameter = params[:search].downcase  
           @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
