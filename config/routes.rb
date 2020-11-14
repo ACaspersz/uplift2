@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   
   get "/causes/index", to: "causes#index", as: "show_causes"
-  
-
+  get '*path', to: 'sellers#index', via: :all
+  post "/causes/new", to: "causes#new"
 end

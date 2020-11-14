@@ -1,1 +1,27 @@
 <h1>This is where all the lists of businesses will be</h1>
+
+<%= link_to 'Want to Advertise your business?', new_cause_path, class: "btn btn-default" %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+    <tbody>
+        <%= form_with(model: @cause) do |form| %>
+            <tr>
+                <td><%= :business_name %></td>
+                <td><%= :region %></td>
+                <%# cause category? %>
+                <td><%= link_to "Show", show_causes_path %></td>
+                <%# Need to hide this from plain view? %>
+                    <td><%= link_to "Edit", update_cause_path(cause) %></td>
+                    <td><%= link_to "Destroy", cause, method: :delete, data: { confirm: "Are you sure?" } %></td>
+                
+            </tr>
+    <% end %>
+  </tbody>
+</table>

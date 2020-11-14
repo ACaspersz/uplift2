@@ -1,10 +1,10 @@
 class CausesController < ApplicationController
-    before_action :set_cause, only: [:show, :edit, :update, :destroy]
+    before_action only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user!, except: [:index, :show]
   before_action :cause_params, only: [:create, :update]
 
     def index
-      link_to 'Main', causes_path
+      
       end
     
       def show
@@ -33,8 +33,7 @@ class CausesController < ApplicationController
         @cause = Cause.new
       end
     
-      def edit
-      end
+      
 
       def profile
       end 
@@ -44,7 +43,7 @@ class CausesController < ApplicationController
         redirect_to new_cause_path if @cause.save
       end
     
-      def update
+      def edit
         respond_to do |format|
           if @cause.update(cause_params)
             format.html { redirect_to @cause, notice: 'Business Profile was successfully updated.' }
@@ -65,9 +64,9 @@ class CausesController < ApplicationController
       end
     
       private
-        def set_cause
-          @cause = Cause.find(params[:id])
-        end
+        # def set_cause
+        #   @cause = Cause.find(params[:id])
+        # end
     
         def cause_params
           params.require(:cause).permit(:business_name, :region, :description, :donation_goal)
