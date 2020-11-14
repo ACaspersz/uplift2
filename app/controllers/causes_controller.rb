@@ -33,14 +33,16 @@ class CausesController < ApplicationController
         @cause = Cause.new
       end
     
-      
+      def show
+        
+      end
 
       def profile
       end 
     
       def create
         @cause = Cause.new(cause_params)
-        redirect_to new_cause_path if @cause.save
+        redirect_to show_causes_path if @cause.save
       end
     
       def edit

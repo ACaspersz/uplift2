@@ -11,15 +11,16 @@
   </thead>
 
     <tbody>
-        <%= form_with(model: @cause) do |form| %>
+        <%= cause.each do |form| %>
             <tr>
-                <td><%= :business_name %></td>
-                <td><%= :region %></td>
+                <td><%= seller.business_name %></td>
+                <td><%= seller.region %></td>
+                <td><%= seller.description %></td>
                 <%# cause category? %>
                 <td><%= link_to "Show", show_causes_path %></td>
                 <%# Need to hide this from plain view? %>
-                    <td><%= link_to "Edit", update_cause_path(cause) %></td>
-                    <td><%= link_to "Destroy", cause, method: :delete, data: { confirm: "Are you sure?" } %></td>
+                    <%# <td><%= link_to "Edit", update_cause_path(cause) %></td>
+                    <%# <td><%= link_to "Destroy", cause, method: :delete, data: { confirm: "Are you sure?" } %></td> 
                 
             </tr>
     <% end %>
