@@ -17,10 +17,23 @@
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+
+    <%= f.input :street_number, 
+                required: false %>
+    <%= f.input :street_address, 
+                required: false %>
+    <%= f.input :suburb, 
+                required: false %>
+    <%= f.input :state, 
+                required: false %>
+    <%= f.input :postcode, 
+                required: false %>
+    <%= f.input :phone_number, 
+                required: false %>    
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+      hint: "we need your current password to confirm your changes",
+      required: true,
+      input_html: { autocomplete: "current-password" } %>
   </div>
 
   <div class="form-actions">
