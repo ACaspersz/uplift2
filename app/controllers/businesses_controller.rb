@@ -12,7 +12,7 @@ class BusinessesController < ApplicationController
             @business = Business.new(business_params)
         
             respond_to do |format|
-              if @business.save
+              if @business.save!
                 format.html { redirect_to @business, notice: 'Business was successfully created.' }
                 format.json { render :show, status: :created, location: @business }
               else
@@ -36,6 +36,6 @@ class BusinessesController < ApplicationController
     private
 
     def business_params
-        params.require(:business).permit(:business_name, :region, :category, :thumbnail, :description)
+        params.require(:business).permit(:user_id, :business_name, :region, :category, :thumbnail, :description)
     end
 end
