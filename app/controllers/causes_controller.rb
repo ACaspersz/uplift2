@@ -4,8 +4,8 @@ class CausesController < ApplicationController
   before_action :cause_params, only: [:create, :update]
 
     def index
-      
-      end
+
+    end
     
       def show
   

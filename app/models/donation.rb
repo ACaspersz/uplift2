@@ -1,4 +1,4 @@
 class Donation < ApplicationRecord
   belongs_to :user
-  has_one :cause
+  belongs_to :cause
 end
