@@ -1,0 +1,63 @@
+<div class="container relative p-6 mx-auto text-gray-900 bg-white rounded-lg lg:p-10">
+  <div class="flex flex-wrap items-center justify-between w-full pb-4 mb-8 border-b-2 border-gray-200">
+    <div class="flex flex-wrap items-start justify-between w-full pb-4 mb-4 border-b-2 border-gray-200">
+      <div class="flex-1">
+        <h1 class="text-3xl font-bold leading-none text-gray-800"><%= cause_name %></h1>
+        <p class="text-sm italic text-gray-500">Created by <%= business.business_name%></p>
+      </div>
+
+    <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
+      <p class="m-0 text-xl font-semibold leading-none"><%= number_to_currency(cause.current_donation_amount) %>/mo</p>
+      <p class="text-sm text-gray-500">pledged of <%= number_to_currency(cause.donation_goal) %>/mo</p>
+    </div>
+
+    <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
+      <p class="m-0 text-xl font-semibold leading-none"><%= cause.donations_count %></p>
+      <p class="text-sm text-gray-500">people have donated</p>
+    </div>
+
+  
+  </div>
+
+  <div class="flex flex-wrap items-start justify-between w-full mb-6">
+    <div class="w-full lg:w-3/5">
+    <% if cause.thumbnail.present? %>
+      <%= image_tag project.thumbnail, class: "rounded" %>
+    <% else %>
+      <div class="flex items-center justify-center p-8 text-center bg-gray-100 rounded">
+        <div class="">
+          <p class="text-xs font-bold text-gray-600 uppercase">PROJECT</p>
+          <h3 class="text-2xl text-black"><%= cause_name %></h3>
+        </div>
+      </div>
+    <% end %>
+      <div class="my-6">
+        <%= render "comments/comments", commentable: project  %>
+        <%= render "comments/form", commentable: project %>
+      </div>
+    </div>
+
+    <div class="w-full mt-6 lg:pl-10 lg:w-2/5 lg:mt-0">
+      <div class="mb-6">
+        <p class="text-sm font-semibold text-gray-500 uppercase">Description</p>
+        <%= cause.description %>
+      </div>
+
+      <h3 class="text-2xl text-gray-900">Back this idea</h3>
+
+      <%# Donation info here %>
+
+          <% if user_signed_in? && cause.business.user_id == current_user.id %>
+            <em class="block text-sm text-center">Sorry, You can't back your own business</em>
+          <% end %>
+      
+    </div>
+  </div>
+
+ <% if admin? || author_of(project) %>
+    <div class="absolute top-0 right-0 mt-4 mr-4">
+      <%= link_to 'Edit', edit_project_path(project), class: "btn btn-sm btn-outlined btn-default" %>
+      <%= link_to 'Delete', project_path(project), method: :delete, class: "btn btn-sm btn-outlined btn-default", data: { confirm: "Are you sure?" } %>
+    </div>
+  <% end %>
+</div>

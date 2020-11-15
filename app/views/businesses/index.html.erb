@@ -8,7 +8,7 @@
       <div class="my-1"><%= truncate(strip_tags(business.description.to_s), length: 140) %></div>
       <p>Donation goal: <%= business.donation_goal %></p>
       <p class="text-sm italic opacity-75">Created by: <%= business.first_name %> </p>
-      <%= link_to "View project", business, class: "btn btn-default inline-block text-center my-2" %>
+      <%= link_to "View project", show_business_path, class: "btn btn-default inline-block text-center my-2" %>
       <% if author_of(project) %>
       <div class="absolute top-0 right-0 mt-2 mr-2">
         <%= link_to edit_project_path(project) do %>
