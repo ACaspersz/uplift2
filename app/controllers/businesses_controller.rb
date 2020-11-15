@@ -3,9 +3,9 @@ class BusinessesController < ApplicationController
         @businesses = Business.all
     end
 
-    # def new
-    #     @business = Business.new
-    # end
+    def new
+        @business = Business.new
+    end
 
     def create
     @business.user_id = current_user.id

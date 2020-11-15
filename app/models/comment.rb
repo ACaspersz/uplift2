@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
-  belongs_to :cause
+  has_one :cause
   belongs_to :user
 end
