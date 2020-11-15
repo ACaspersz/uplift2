@@ -31,8 +31,7 @@ class UsersController < ApplicationController
         end 
       
         def create
-          @cause = Cause.new(cause_params)
-          redirect_to new_cause_path if @cause.save
+          
         end
       
         def update

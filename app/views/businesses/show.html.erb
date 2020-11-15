@@ -1,0 +1,7 @@
+<%# business information %>
+<%# list of causes %>
+<%= render partial: "cause", collection: business.causes, as: :cause %>
+<% if business.user_id == current_user.id %>
+    <%# link to add a cause %>
+<% end %>
+
