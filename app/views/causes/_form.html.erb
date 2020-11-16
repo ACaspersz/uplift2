@@ -1,30 +1,24 @@
 <div class="form">
-  <%= form_with(model: @user, local: true) do |form| %>
+  <%= form_with(model: @cause, local: true) do |form| %>
  
 
     <div class="form-group">
-      <%= form.label :business_name %><br>
-      <%= form.text_field :business_name, class: "form-control" %>
+      <%= form.label :cause_name %><br>
+      <%= form.text_field :cause_name, class: "form-control" %>
     </div>
-    <div class="form-group">
+    <%# <div class="form-group">
       <%= form.label :thumbnail %><br>
-      <%= form.file_field :thumbnail, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= form.label :region %><br>
-      <%= form.text_field :region, class: "form-control" %>
-    </div>
+      <%# <%= form.file_field :thumbnail, class: "form-control" %>
+    <%# </div>  %>
     <div class="form-group">
       <%= form.label :description %><br>
-      <%= form.rich_text_area :description, class: "form-control" %>
+      <%= form.text_area :description, class: "form-control" %>
     </div>
     <div class="form-group">
       <%= form.label :donation_goal %><br>
       <%= form.number_field :donation_goal, class: "form-control" %>
     </div>
-    <%= form.label :category %><br>
-    <%= form.select :category, [ 'Hospitality', 'Tourism', 'Retail', 'Food Production', 'Entertainment', 'Service', 'Other' ], :prompt => 'Select One' %>
-    <br>
+   
     <div class="submit">
       <%= form.submit "Submit", class: "btn btn-lg btn-primary" %>
     </div>

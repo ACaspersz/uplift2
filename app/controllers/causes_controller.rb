@@ -1,7 +1,6 @@
 class CausesController < ApplicationController
-    before_action only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, except: [:index, :show]
-  before_action :cause_params, only: [:create, :update]
+    before_action :set_cause, only: [:show]
+  
 
     def index
 
@@ -20,19 +19,32 @@ class CausesController < ApplicationController
         end 
       end
 
-      def search
-        if params[:search].blank?  
-          redirect_to(causes_path, alert: "Empty field!") and return  
-        else  
-          @parameter = params[:search].downcase  
-          @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
-        end
-      end
+      # def search
+      #   if params[:search].blank?  
+      #     redirect_to(causes_path, alert: "Empty field!") and return  
+      #   else  
+      #     @parameter = params[:search].downcase  
+      #     @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
+      #   end
+      # end
     
       def new
         @cause = Cause.new
       end
-    
+
+      def create
+        @cause = Cause.new(cause_params)
+        @cause.business_id = current_business.id
+
+        respond_to do |format|
+          if @cause.save!
+            format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
+            format.json { render :show, status: :created, location: @cause }
+          else
+            format.html { render :new }
+            format.json { render json: @cause.errors, status: :unprocessable_entity }
+          end
+      end
       def show
         
       end
@@ -40,10 +52,7 @@ class CausesController < ApplicationController
       def profile
       end 
     
-      def create
-        @cause = Cause.new(cause_params)
-        redirect_to show_causes_path if @cause.save
-      end
+      
     
       def edit
         respond_to do |format|
@@ -66,12 +75,13 @@ class CausesController < ApplicationController
       end
     
       private
-        # def set_cause
-        #   @cause = Cause.find(params[:id])
-        # end
-    
         def cause_params
-          params.require(:cause).permit(:business_id, :business_name, :region, :description, :donation_goal)
+          params.require(:cause).permit(:cause_name, :description, :donation_goal)
         end
-
+        
+        def set_cause
+          @cause = Cause.find(params[:id])
+        end
+    
+      end
 end
