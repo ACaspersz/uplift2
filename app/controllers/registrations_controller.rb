@@ -1,5 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
-    private
+    
+  
+  
+  
+  private
  
     # Modified Devise params for user login
     def sign_up_params
@@ -7,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def after_sign_up_path_for(resource)
-        "/causes/index"
+        "/businesses/index"
       end
    
       def after_inactive_sign_up_path_for(resource)
