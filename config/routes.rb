@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :causes
   end
 
-  get '/search' => 'pages#search', :as => 'search_page'
+  get '/search' => 'businesses#search', :as => 'search_page'
   get '/profile' => 'users#profile'
 
   root to: 'home#index'
