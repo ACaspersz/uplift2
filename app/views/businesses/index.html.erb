@@ -8,7 +8,7 @@
       <h3 class="mb-2 text-2xl font-bold"><%= business.business_name %></h3>
       <p class="text-sm italic opacity-75">Created by: <%= business.user.first_name %> </p>
       <p>Region: <%= business.region %></p>
-      <p> Category <%= business.category %></p>
+      <p> Category: <%= business.category %></p>
      
       <%= link_to "View business", business_path(business), class: "btn btn-default inline-block text-center my-2" %>
       <%# <% if author_of(business)
