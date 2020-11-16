@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 #custom gems
-gem 'bootstrap', '~> 4.5.2'
+gem 'bootstrap'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
