@@ -7,13 +7,12 @@
       </div>
 
 
-  <%# <div class="flex flex-wrap items-start justify-between w-full mb-6">
+  
     <div class="w-full lg:w-3/5">
-    <% if @business.thumbnail.present? %>
-      <%# <%= image_tag @business.thumbnail, class: "rounded" %>
-    
-    <%# <% end %> 
-    <%# </div> %>
+    <% if @business.picture.present? %>
+      <%= image_tag @business.picture, class: "rounded" %>
+    <% end %> 
+    </div>
 
     <div class="w-full mt-6 lg:pl-10 lg:w-2/5 lg:mt-0">
       <div class="mb-6">

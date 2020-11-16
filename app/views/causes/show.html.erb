@@ -18,9 +18,32 @@
       <%# <p class="text-sm text-gray-500">backers</p>
     </div> %> 
 
+<h2>Comments</h2>
+<% @cause.comments.each do |comment| %>
+  <%# <p>
+    <strong>Commenter:</strong>
+    <%= comment.first_name %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.description %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @cause, @cause.comments.build ], local: true) do |form| %>
+  <%# <p>
+    <%= form.label :first_name %><br>
+    <%# <%= form.text_field :first_name %>
+  <%# </p>  %>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
   
 
-      <%# <div class="my-6">
-        <%= render "comments/comments", commentable: @cause  %>
-        <%# <%= render "comments/form", commentable: @cause %>
-      <%# </div>  %>

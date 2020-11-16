@@ -1,9 +1,15 @@
-<p>Comments</p>
-<% if @users.commentable.comments.present? %>
-    <% @users.commentable.comments.each do |comment| %>
-        <div>
-            <p><strong><%= comment.first_name %> </strong> <br>
-            <%= comment.description %></p>
-        </div>
-    <% end %>
-<% end %>
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.first_name %>
+</p>
+ 
+<p>
+  <strong>Comment:</strong>
+  <%= comment.description %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Comment', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

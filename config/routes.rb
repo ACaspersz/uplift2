@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :causes
 
   resources :businesses do
-    resources :causes
+    resources :causes do
+      resources :comments 
+    end
   end
 
   get '/search' => 'businesses#search', :as => 'search_page'

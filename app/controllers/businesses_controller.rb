@@ -14,8 +14,8 @@ class BusinessesController < ApplicationController
     @business.user_id = current_user.id
 
     respond_to do |format|
-      if @business.save!
-        format.html { redirect_to @business, notice: 'Business was successfully created.' }
+      if @business.save
+        format.html { redirect_to show_business_path, notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
       else
         format.html { render :new }
