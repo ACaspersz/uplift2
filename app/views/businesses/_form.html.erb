@@ -4,10 +4,10 @@
       <%= form.label :business_name %><br>
       <%= form.text_field :business_name, class: "form-control" %>
     </div>
-<%# <div class="field">
-    <%= form.label :thumbnail %>
-    <%# <%= form.file_field :thumbnail, accept: 'image/png, image/jpeg, image/jpg' %>
-  <%# </div> %>
+<div class="form-group">
+    <%= form.label :picture %>
+    <%= form.file_field :picture, accept: 'image/png, image/jpeg, image/jpg' %>
+  </div>
     <div class="form-group">
       <%= form.label :region %><br>
       <%= form.text_field :region, class: "form-control" %>

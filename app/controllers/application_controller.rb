@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     private
  
-    def after_sign_in_path_for(resource)
-       "/causes/index"
-    end
+    # def after_sign_in_path_for(resource)
+    #    "/causes/index"
+    # end
 end

@@ -1,6 +1,6 @@
 class Business < ApplicationRecord
     belongs_to :user
     has_many :causes
-    has_many_attached :thumbnails
+    has_one_attached :picture
     
 end
