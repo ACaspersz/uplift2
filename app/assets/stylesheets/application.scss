@@ -34,12 +34,18 @@ p {
 #logo {
   font-family: $logo-font;
 }
-.page-container {
+.container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
+  .navbar-header {
+
+  }
+
+  
 
   @media screen and (min-width: 1200px){
     max-width: 980px; 
@@ -106,3 +112,5 @@ body {
     width: 200px;
     margin: 10px 0px;
   }
+
+  

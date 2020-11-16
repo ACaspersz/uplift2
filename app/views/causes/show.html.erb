@@ -9,8 +9,8 @@
 
  
  <%# <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
-      <p class="m-0 text-xl font-semibold leading-none"><%= number_to_currency(@business.current_donation_amount) %>/mo</p>
-      <%# <p class="text-sm text-gray-500">pledged of <%= number_to_currency(project.donation_goal) %>/mo</p>
+      <p class="m-0 text-xl font-semibold leading-none"><%= number_to_currency(@business.current_donation_amount) %>
+      <%# <p class="text-sm text-gray-500">pledged of <%= number_to_currency(project.donation_goal) %>
     <%# </div> %>
 
     <%# <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
@@ -18,32 +18,34 @@
       <%# <p class="text-sm text-gray-500">backers</p>
     </div> %> 
 
+<%= link_to "Donate", "/donations/new" %>
+
 <h2>Comments</h2>
-<% @cause.comments.each do |comment| %>
+<%# <% @cause.comments.each do |comment| %> 
   <%# <p>
     <strong>Commenter:</strong>
     <%= comment.first_name %>
-  </p>
+  <%# </p> %>
  
-  <p>
+  <%# <p>
     <strong>Comment:</strong>
     <%= comment.description %>
-  </p>
-<% end %>
+  <%# </p>
+<% end %> 
  
-<h2>Add a comment:</h2>
+<%# <h2>Add a comment:</h2>
 <%= form_with(model: [ @cause, @cause.comments.build ], local: true) do |form| %>
-  <%# <p>
-    <%= form.label :first_name %><br>
+  <%# <p> %>
+    <%# <%= form.label :first_name %><br>
     <%# <%= form.text_field :first_name %>
   <%# </p>  %>
-  <p>
+  <%# <p>
     <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+    <%# <%= form.text_area :description %>
+  <%# </p>
   <p>
     <%= form.submit %>
-  </p>
-<% end %>
+  <%# </p>
+<% end %> 
   
 

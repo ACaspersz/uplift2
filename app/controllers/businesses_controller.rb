@@ -12,6 +12,10 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(business_params)
     @business.user_id = current_user.id
+    params[:picture]['picture'].each do |picture|
+      @business.picture = picture
+    end
+      @business.save
 
     respond_to do |format|
       if @business.save
@@ -46,7 +50,7 @@ class BusinessesController < ApplicationController
   private
 
   def business_params
-      params.require(:business).permit(:user_id, :business_name, :region, :category, :picture, :description)
+      params.require(:business).permit(:user_id, :business_name, :region, :category, {picture: []}, :description)
   end
 
   def set_business

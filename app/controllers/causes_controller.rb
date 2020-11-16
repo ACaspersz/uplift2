@@ -33,6 +33,10 @@ class CausesController < ApplicationController
   def create
     @business = Business.find(params[:business_id])
     @cause = @business.causes.build(cause_params)
+    # params[:picture].each do |picture|
+    #   @cause.picture = picture
+    # end
+      @cause.save
 
     respond_to do |format|
       if @cause.save
@@ -74,7 +78,7 @@ class CausesController < ApplicationController
   private
   
   def cause_params
-    params.require(:cause).permit(:cause_name, :description, :donation_goal)
+    params.require(:cause).permit(:cause_name, {picture: []}, :description, :donation_goal)
   end
   
   def set_cause
