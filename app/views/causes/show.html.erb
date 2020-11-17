@@ -1,5 +1,11 @@
  
  <h1> <%= @cause.cause_name %> </h1>
+
+     <div class="w-full lg:w-3/5">
+    <% if @cause.picture.present? %>
+      <%= image_tag @cause.picture, class: "rounded" %>
+    <% end %> 
+    </div>
  
  <p><%= @cause.description%> </p>
 
@@ -35,10 +41,10 @@
  
 <h2>Add a comment:</h2>
 <%= form_with(model: @comment, local: true) do |form| %>
-  <p> 
+  <%# <p> 
     <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
-  </p> 
+    <%# <%= form.text_field :first_name %>
+  <%# </p>   %>
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>

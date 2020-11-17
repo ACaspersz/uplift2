@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
     before_action :authenticate_user!
     
+    def new
+      @comment = Comment.new
+    end
+    
     def create
       @cause = Cause.find(params[:cause_id])
       @comment = @cause.comments.create(comment_params)

@@ -1,22 +1,21 @@
-<div class = "container">
-    <div class = "main-page-image">
-        <h1>Uplift</h1><br>
-        <p>For mates who want to help mates</p><br>
-        <%# <%= image_tag "babykoala.jpg", alt: "koala and baby in gumtree" %>
-        <%= link_to 'Log In', new_user_session_path %><br>
-        <%= link_to 'New here? Sign Up', new_user_registration_path %>
+<div class="container">
+    <div class="main-page-image rounded-lg p-4">
+        <div class="flex flex-column center">
+            <h1>For mates who want to help mates</h1>
+            <div>
+                <%= link_to 'Help a Business', businesses_path, class: "btn btn-info btn-lg my-2" %>
+                <%= link_to 'Advertise Your Business', new_business_path, class: "btn btn-light btn-lg my-2" %>
+            </div>
+        </div>
     </div>
-
-    <%= link_to 'Want to Advertise your business?', new_business_path, class: "btn btn-default" %>
-
-    <div class = "about">
+    <div class="about">
         <h1 >Why are we doing this?<h1>
 
         <p>Small businesses in Australia have been impacted by the bushfires from October 2019 to February 2020, which damaged many businesses and their product or means of producing goods as well as limiting or stopping tourism to areas that depend on it during the peak summer months. On top of this, the global COVID pandemic that followed shortly after further stopped the possibility of customers and tourists returning to these regions, due to lockdown requirements and the halting of international and interstate travel. The human and enviromental loss that occurred in this country due to these two events cannot be understated, and economically small businesses were not exempt, many closing or shutting down permanently if they could not digitise their business or otherwise adjust fast enough. </p>
 
         <p>Meanwhile Australian people have been in various levels of lockdown for almost 9 months and still to this day unable to fully return to a 'normal' way of life. This includes using our economic ability as consumers to buy goods within our community, due travel restrictions and the need to social distance. While online shopping activity has greatly increased since the start of the pandemic, it is often larger corporations who are positioned to benefit the most from these changes, not local or smaller scale business.</p>
 
-    <p>LiftUp is a marketplace application that aims to connect small businesses who have been affected by the coronavirus pandemic, other disasters such as bushfires and floods (or both), with customers who want to purchase their products but are unable to do so in person, or otherwise individuals who want to ensure that their consumer power is used towards supporting their local community through difficult and unprecedented times. </p>
+        <p>LiftUp is a marketplace application that aims to connect small businesses who have been affected by the coronavirus pandemic, other disasters such as bushfires and floods (or both), with customers who want to purchase their products but are unable to do so in person, or otherwise individuals who want to ensure that their consumer power is used towards supporting their local community through difficult and unprecedented times. </p>
     </div>
 
     <div class = "how-it-works">

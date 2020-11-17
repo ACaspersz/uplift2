@@ -2,55 +2,59 @@
 <html>
   <head>
     <title>Uplift</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans&display=swap" rel="stylesheet">
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <div class="container"> 
-      <ul class="nav">
-        <li class="nav-item">
-          <%=link_to "🙌 Uplift", root_path, class: "nav-link font-weight-bold", id: "logo" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'See All Businesses', businesses_path, class: "nav-link" %>
-        </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to 'Edit Account', edit_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, class: "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Log In', new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="container py-4">
+      <% flash.each do |type, msg| %>
+        <%= content_tag :div, sanitize(msg), class: "alert alert-#{ type == 'alert' ? 'warning' : 'info' }" %>
+      <% end %>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light my-4 rounded-lg">
+        <%=link_to "Uplift", root_path, class: "navbar-brand", id: "logo" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <%= form_tag(search_page_path, :method => "get", class: 'navbar-form navbar-left') do %>  
-    <div class="input-group">  
-      <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
-      <div class="input-group-btn">  
-        <%= button_tag "Go", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
-      </div>  
-    </div>  
-<% end %>
-<nav>
-      </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">     
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to 'See All Businesses', businesses_path, class: "nav-link" %>
+            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Edit Account', edit_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Log In', new_user_session_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+          <%= form_tag(search_page_path, :method => "get", class: 'form-inline my-2 my-lg-0') do %>  
+              <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2" %>
+              <%= button_tag "Go", :class => 'btn btn-info glyphicon glyphicon-search my-2 my-sm-0',:name => nil %>
+            </div>  
+          <% end %>
+        </div>
+      </nav>
+
   </head>
 
   <body>
-  <p class="alert"><%= alert %></p>
     <%= yield %>
-
   </body>
 </html>
