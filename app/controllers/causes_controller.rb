@@ -26,16 +26,15 @@ class CausesController < ApplicationController
       # end
     
   def new
-    @business = Business.find(params[:business_id])
-    @cause = @business.causes.build
+    @cause = Cause.new
   end
 
   def create
-    @business = Business.find(params[:business_id])
-    @cause = @business.causes.build(cause_params)
-    # params[:picture].each do |picture|
-    #   @cause.picture = picture
-    # end
+    @cause_id = @business.id
+    @cause = Cause.find(params[:cause_id])
+    params[:picture] && params[:picture]['picture'].each do |picture|
+      @cause.picture = picture
+    end
       @cause.save
 
     respond_to do |format|
@@ -78,7 +77,7 @@ class CausesController < ApplicationController
   private
   
   def cause_params
-    params.require(:cause).permit(:cause_name, {picture: []}, :description, :donation_goal)
+    params.require(:cause).permit(:cause_name, :picture, :description, :donation_goal)
   end
   
   def set_cause
