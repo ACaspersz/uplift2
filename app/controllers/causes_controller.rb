@@ -41,10 +41,14 @@ class CausesController < ApplicationController
    
     @cause = Cause.new(cause_params)
     @cause.business_id = params[:business_id]
+    params[:picture] && params[:picture]['picture'].each do |picture|
+      @cause.picture = picture
+    end
+    @cause.save!
 
     respond_to do |format|
       if @cause.save
-        format.html { redirect_to @cause, notice: 'Cause was successfully created.' }
+        format.html { redirect_to business_cause_path(@cause[:id]), notice: 'Cause was successfully created.' }
         format.json { render :show, status: :created, location: @cause }
       else
         format.html { render :new }
