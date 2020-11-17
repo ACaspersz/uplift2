@@ -41,10 +41,16 @@ class BusinessesController < ApplicationController
       
   end
 
-  def destroy
+  def delete
+    @business.destroy
+    respond_to do |format|
+      format.html { redirect_to causes_url, notice: 'Business Profile was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
-  def update 
+  def edit 
+    
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_002651) do
+ActiveRecord::Schema.define(version: 2020_11_17_030302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_002651) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "commentable_id"
     t.string "commentable_type"
-    t.bigint "causes_id", null: false
-    t.index ["causes_id"], name: "index_comments_on_causes_id"
+    t.bigint "cause_id", null: false
+    t.index ["cause_id"], name: "index_comments_on_cause_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -98,6 +98,6 @@ ActiveRecord::Schema.define(version: 2020_11_17_002651) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses", "users"
   add_foreign_key "causes", "businesses"
-  add_foreign_key "comments", "causes", column: "causes_id"
+  add_foreign_key "comments", "causes"
   add_foreign_key "comments", "users"
 end

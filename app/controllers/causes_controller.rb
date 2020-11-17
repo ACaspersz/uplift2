@@ -26,16 +26,21 @@ class CausesController < ApplicationController
       # end
     
   def new
+    @business = Business.find(params[:business_id])
     @cause = Cause.new
+
   end
 
   def create
-    @cause_id = @business.id
-    @cause = Cause.find(params[:cause_id])
-    params[:picture] && params[:picture]['picture'].each do |picture|
-      @cause.picture = picture
-    end
-      @cause.save
+    # @cause_id = @business.id
+    
+    # params[:picture] && params[:picture]['picture'].each do |picture|
+    #   @cause.picture = picture
+    # end
+    #   @cause.save
+   
+    @cause = Cause.new(cause_params)
+    @cause.business_id = params[:business_id]
 
     respond_to do |format|
       if @cause.save

@@ -34,11 +34,11 @@
 <% end %> 
  
 <h2>Add a comment:</h2>
-<%= form_with(model: [ @cause, @cause.comments.build ], local: true) do |form| %>
-  <p> %>
+<%= form_with(model: @cause, local: true) do |form| %>
+  <p> 
     <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
-  </p>  %>
+  </p> 
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
