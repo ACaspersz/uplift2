@@ -12,14 +12,15 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(business_params)
     @business.user_id = current_user.id
-    params[:picture]['picture'].each do |picture|
+    pp params
+    params[:picture] && params[:picture]['picture'].each do |picture|
       @business.picture = picture
     end
       @business.save
 
     respond_to do |format|
       if @business.save
-        format.html { redirect_to show_business_path, notice: 'Business was successfully created.' }
+        format.html { redirect_to business_path(@business), notice: 'Business was successfully created.' }
         format.json { render :show, status: :created, location: @business }
       else
         format.html { render :new }
@@ -50,7 +51,7 @@ class BusinessesController < ApplicationController
   private
 
   def business_params
-      params.require(:business).permit(:user_id, :business_name, :region, :category, {picture: []}, :description)
+      params.require(:business).permit(:user_id, :business_name, :region, :category, :picture, :description)
   end
 
   def set_business
