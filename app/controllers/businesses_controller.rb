@@ -12,7 +12,6 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(business_params)
     @business.user_id = current_user.id
-    pp params
     params[:picture] && params[:picture]['picture'].each do |picture|
       @business.picture = picture
     end

@@ -21,31 +21,31 @@
 <%= link_to "Donate", "/donations/new" %>
 
 <h2>Comments</h2>
-<%# <% @cause.comments.each do |comment| %> 
-  <%# <p>
+<% @cause.comments.each do |comment| %> 
+  <p>
     <strong>Commenter:</strong>
     <%= comment.first_name %>
-  <%# </p> %>
+  </p>
  
-  <%# <p>
+  <p>
     <strong>Comment:</strong>
     <%= comment.description %>
-  <%# </p>
+  </p>
 <% end %> 
  
-<%# <h2>Add a comment:</h2>
+<h2>Add a comment:</h2>
 <%= form_with(model: [ @cause, @cause.comments.build ], local: true) do |form| %>
-  <%# <p> %>
-    <%# <%= form.label :first_name %><br>
-    <%# <%= form.text_field :first_name %>
-  <%# </p>  %>
-  <%# <p>
+  <p> %>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>  %>
+  <p>
     <%= form.label :description %><br>
-    <%# <%= form.text_area :description %>
-  <%# </p>
+    <%= form.text_area :description %>
+  </p>
   <p>
     <%= form.submit %>
-  <%# </p>
-<% end %> 
+  </p>
+<% end  %>
   
 
