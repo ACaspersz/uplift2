@@ -2,10 +2,9 @@ class CommentsController < ApplicationController
     before_action :authenticate_user!
     
     def create
-        @comment = @commentable.comments.new(comment_params)
-        @comment.user = current_user
-        @comment.save
-        redirect_to @commentable, notice: "You have posted a comment."
+      @cause = Cause.find(params[:cause_id])
+      @comment = @cause.comments.create(comment_params)
+      redirect_to cause_path(@cause)
     end
 
 
