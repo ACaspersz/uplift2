@@ -1,5 +1,5 @@
 class CausesController < ApplicationController
-  before_action :set_cause, only: [:show, :update, :destroy]
+  # before_action :set_cause, only: [:show, :update, :destroy]
 
   def index
   end
@@ -48,7 +48,7 @@ class CausesController < ApplicationController
 
     respond_to do |format|
       if @cause.save
-        format.html { redirect_to business_cause_path(@cause[:id]), notice: 'Cause was successfully created.' }
+        format.html { redirect_to new_business_cause_path(@cause[:id]), notice: 'Cause was successfully created.' }
         format.json { render :show, status: :created, location: @cause }
       else
         format.html { render :new }

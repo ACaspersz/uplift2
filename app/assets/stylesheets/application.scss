@@ -14,25 +14,20 @@
  *= require_self
  */
 
- @import "bootstrap";
+@import "bootstrap";
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR|Fredoka+One|Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans&display=swap');
+ 
 
+$logo-font: 'Fredoka One';
+$body-font: 'Open Sans';
 
-$logo-font: "Fredoka One", sans-serif;
-$heading-font: "Source Sans Pro", sans-serif;
-$body-font: "Noto Serif KR";
-
-h1, h2, h3, h4, h5 {
-  font-family: $logo-font;
-}
-
-p {
-  font-family: $heading-font;
+* {
+  font-family: $body-font, sans-serif;
 }
 
 #logo {
-  font-family: $logo-font;
+  font-family: $logo-font, sans-serif;
 }
 .container {
   width: 100%;

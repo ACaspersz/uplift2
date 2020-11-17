@@ -6,29 +6,34 @@
     <%= csp_meta_tag %>
     
     <%= stylesheet_pack_tag 'application' %>
-<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <div class="container"> 
-      <div class="navbar-header">
-        <p class="navbar-brand"><%=link_to "Uplift", root_path %></p>
-      </div>
-      
-      <ul class="nav navbar-nav">
+      <ul class="nav">
+        <li class="nav-item">
+          <%=link_to "🙌 Uplift", root_path, class: "nav-link font-weight-bold", id: "logo" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'See All Businesses', businesses_path, class: "nav-link" %>
+        </li>
         <% if user_signed_in? %>
-          <li><%= link_to 'See All Businesses', businesses_path %></li>
+          <li class="nav-item">
+            <%= link_to 'Edit Account', edit_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Log In', new_user_session_path, class: "nav-link" %>
+          </li>
         <% end %>
       </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-      <% if user_signed_in? %>
-        <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <li><%= link_to 'Log In', new_user_session_path %></li>
-      <% end %>
 
   <%= form_tag(search_page_path, :method => "get", class: 'navbar-form navbar-left') do %>  
     <div class="input-group">  

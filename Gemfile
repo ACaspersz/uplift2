@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'devise'
 gem "faker", "~> 2.14"
 gem "aws-sdk-s3", "~> 1.84"
+gem 'rails_admin', '~> 2.0'
 
 
 group :development, :test do
