@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
     
     def create
       @cause = Cause.find(params[:cause_id])
-      @comment = @cause.comments.create(comment_params)
-      redirect_to cause_path(@cause)
+      @comment = @cause.comments.create!(comment_params.merge({ user_id: current_user.id }))
+      redirect_to business_cause_path(@cause.business, @cause)
     end
 
 
@@ -16,13 +16,13 @@ class CommentsController < ApplicationController
       @cause = Cause.find(params[:cause_id])
       @comment = @cause.comments.find(params[:id])
       @comment.destroy
-      redirect_to cause_path(@cause)
+      redirect_to business_cause_path(@cause.business, @cause)
     end
 
 
     private
   
-      def comment_params
-        params.require(:comment).permit(:description)
-      end
+    def comment_params
+      params.require(:comment).permit(:description)
+    end
 end

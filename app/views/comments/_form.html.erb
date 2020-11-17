@@ -1,9 +1,9 @@
 <p>New comment</p>
-<%= form_with(model: [ @cause, @cause.comments.build ], local: true) do |form| %>
-  <p>
+<%= form_with(model: [ @cause, @cause.comments.build ], url: business_cause_comments_path(@cause.business, @cause), method: "post", local: true) do |form| %>
+  <%# <p>
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
+    <%# <%= form.text_field :commenter %>
+  <%# </p> %> 
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
