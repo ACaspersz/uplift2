@@ -50,7 +50,6 @@ class BusinessesController < ApplicationController
   end
 
   def edit 
-    
   end
 
   private
