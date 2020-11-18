@@ -1,6 +1,6 @@
 <div class = "container">
   <div class="form">
-    <%= form_with(model: @cause, business_cause_path(@business, cause), local: true) do |form| %>
+    <%= form_with(model: @cause, url: business_causes_path(@business), local: true) do |form| %>
       <div class="form-group">
         <%= form.label :cause_name %><br>
         <%= form.text_field :cause_name, class: "form-control" %>
