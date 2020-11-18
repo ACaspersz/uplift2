@@ -18,7 +18,7 @@ require 'faker'
         user.street_address = Faker::Address.street_name
         user.suburb = Faker::Address.city
         user.postcode = "1234"
-        user.save!
+        user.save
     
     
 
@@ -27,17 +27,18 @@ require 'faker'
         business = Business.new
             business.business_name = Faker::FunnyName
             business.region = Faker::Address.city
-            business.description = Faker::Lorem.paragraph(sentence_count: rand(2..10))
-            business_id = user.user_id 
-            business.save!
+            business.description = Faker::Lorem.paragraph(sentence_count: rand(2..10)) 
+            business.save
         
 
 
         for business.each do
             cause = Cause.new
-                cause.donation_goal = Faker::Number.between(from: 100, to: 50000)
-                
-                cause.save!
+            cause.cause_name = "Door replacing"
+            cause.donation_goal = Faker::Number.between(from: 100, to: 50000)
+            cause.save
+            
+            
         end
     end
 end
