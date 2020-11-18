@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  # database: uplift3_production
+  database: uplift3_production
   # username: uplift3
   # password: <%= ENV['UPLIFT3_DATABASE_PASSWORD'] %>
