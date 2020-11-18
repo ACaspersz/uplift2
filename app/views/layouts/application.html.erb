@@ -44,11 +44,13 @@
               </li>
             <% end %>
           </ul>
-          <%= form_tag(search_page_path, :method => "get", class: 'form-inline my-2 my-lg-0') do %>  
-              <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2" %>
-              <%= button_tag "Go", :class => 'btn btn-info glyphicon glyphicon-search my-2 my-sm-0',:name => nil %>
-            </div>  
-          <% end %>
+          <input type=”text” name=”query” id=”query” placeholder=”I want to find…”>
+          <input type=”submit” name=”commit” value=“Search” class=“btn btn-default”>
+          <%# <%= form_tag(search_page_path, :method => "get", class: 'form-inline my-2 my-lg-0') do %>  
+              <%# <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2" %> 
+              <%# <%= button_tag "Go", :class => 'btn btn-info glyphicon glyphicon-search my-2 my-sm-0',:name => nil %> 
+            <%# </div>   %>
+          <%# <% end %>
         </div>
       </nav>
 

@@ -2,8 +2,13 @@ class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :update, :destroy]
   
   def index
+    if params[:query].present?
+      businesses = Business.search(params[:query])
+    else
       @businesses = Business.all
+    end
   end
+ 
 
   def new
       @business = Business.new

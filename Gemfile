@@ -33,9 +33,9 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
-gem "faker", "~> 2.14"
-gem "aws-sdk-s3", "~> 1.84"
-
+gem 'faker', "~> 2.14"
+gem 'aws-sdk-s3', "~> 1.84"
+gem 'pg_search', '~> 2.3', '>= 2.3.2'
 
 
 group :development, :test do
