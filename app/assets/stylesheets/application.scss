@@ -74,6 +74,14 @@ body {
   
 }
 
+.image {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  
+  align-items: center;
+}
 
 .center {
  text-align: center;

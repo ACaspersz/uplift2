@@ -1,36 +1,36 @@
- 
- <h1> <%= @cause.cause_name %> </h1>
+ <div class = "container">
+  <h1> <%= @cause.cause_name %> </h1>
 
-     <div class="w-full lg:w-3/5">
-    <% if @cause.picture.present? %>
-      <%= image_tag @cause.picture, class: "rounded" %>
-    <% end %> 
-    </div>
- 
- <p><%= @cause.description%> </p>
-
-<h2> <%= @cause.donation_goal %> </h2>
-
- <%# Image? %>
-
- 
- <%# <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
-      <p class="m-0 text-xl font-semibold leading-none"><%= number_to_currency(@business.current_donation_amount) %>
-      <%# <p class="text-sm text-gray-500">pledged of <%= number_to_currency(project.donation_goal) %>
-    <%# </div> %>
-
-    <%# <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
-      <p class="m-0 text-xl font-semibold leading-none"><%= project.backings_count %></p>
-      <%# <p class="text-sm text-gray-500">backers</p>
-    </div> %> 
-
-<%= link_to "Donate", "/donations/new" %>
-
-<<h2>Comments</h2>
-<% @cause.comments.each do |comment| %>
-  <%= render 'comments/comment', comment: comment %>
-<% end %>
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+      <div class="w-full lg:w-3/5">
+      <% if @cause.picture.present? %>
+        <%= image_tag @cause.picture, class: "rounded" %>
+      <% end %> 
+      </div>
   
+  <p><%= @cause.description%> </p>
+
+  <h2> <%= @cause.donation_goal %> </h2>
+
+  <%# Image? %>
+
+  
+  <%# <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
+        <p class="m-0 text-xl font-semibold leading-none"><%= number_to_currency(@business.current_donation_amount) %>
+        <%# <p class="text-sm text-gray-500">pledged of <%= number_to_currency(project.donation_goal) %>
+      <%# </div> %>
+
+      <%# <div class="w-full mb-4 lg:w-1/5 lg:mb-0">
+        <p class="m-0 text-xl font-semibold leading-none"><%= project.backings_count %></p>
+        <%# <p class="text-sm text-gray-500">backers</p>
+      </div> %> 
+
+  <%= link_to "Donate", "/donations/new" %>
+
+  <h2>Comments</h2>
+  <% @cause.comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
+  <% end %>
+  <h2>Add a comment:</h2>
+  <%= render 'comments/form' %>
+</div> 
 

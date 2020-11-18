@@ -16,39 +16,24 @@ class CausesController < ApplicationController
     end 
   end
 
-      # def search
-      #   if params[:search].blank?  
-      #     redirect_to(causes_path, alert: "Empty field!") and return  
-      #   else  
-      #     @parameter = params[:search].downcase  
-      #     @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
-      #   end
-      # end
-    
+
   def new
     @business = Business.find(params[:business_id])
     @cause = Cause.new
-
   end
 
   def create
-    # @cause_id = @business.id
-    
-    # params[:picture] && params[:picture]['picture'].each do |picture|
-    #   @cause.picture = picture
-    # end
-    #   @cause.save
-   
     @cause = Cause.new(cause_params)
     @cause.business_id = params[:business_id]
+    @business = Business.find(params[:business_id])
     params[:picture] && params[:picture]['picture'].each do |picture|
       @cause.picture = picture
     end
-    @cause.save!
+    
 
     respond_to do |format|
       if @cause.save
-        format.html { redirect_to new_business_cause_path(@cause[:id]), notice: 'Cause was successfully created.' }
+        format.html { redirect_to business_cause_path(@business[:id], @cause[:id]), notice: 'Cause was successfully created.' }
         format.json { render :show, status: :created, location: @cause }
       else
         format.html { render :new }
