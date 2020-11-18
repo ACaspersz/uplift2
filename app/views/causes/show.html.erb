@@ -1,26 +1,30 @@
- <div class = "container">
-  <h1> <%= @cause.cause_name %> </h1>
-
-      <div class="w-full lg:w-3/5">
+<div class = "container">
+  <div class="card" >
+    <h3> <%= @cause.cause_name %> </h3>
+  
+    <div class="w-full lg:w-3/5">
       <% if @cause.picture.present? %>
         <%= image_tag @cause.picture, class: "rounded" %>
       <% end %> 
-      </div>
+    </div>
   
-  <p><%= @cause.description%> </p>
+    <h3><%= @cause.description%> </h3>
 
-  <h2> <%= @cause.donation_goal %> </h2>
+    <h2> $<%= @cause.donation_goal %>0 </h2>
 
-
+  </div>
 
   <%= link_to "Donate", "/donations/new" %>
 
-  <h2>Comments</h2>
-  <% @cause.comments.each do |comment| %>
-    <%= render 'comments/comment', comment: comment %>
-  <% end %>
-
-  <h2>Add a comment:</h2>
-  <%= render 'comments/form' %>
+  <h3>Comments</h3>
+  <div class = "card">
+    <% @cause.comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment %>
+    <% end %>
+  </div>
+  <div class = "card">
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+  </div>
 </div> 
 

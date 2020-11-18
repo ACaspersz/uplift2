@@ -1,23 +1,26 @@
 <div class="container">
-<h1>Businesses in need of your help</h1>
-
-  <%= @businesses.each do |business| %>
- 
-    <%= image_tag business.picture, class: "image" if business.picture.attached? %>
- 
-    <div class="relative w-full p-6 mb-6 border-2 border-blue-700 rounded-lg lg:w-1/4 lg:mr-8">
-      <h3 class="mb-2 text-2xl font-bold"><%= business.business_name %></h3>
-      <p class="text-sm italic opacity-75">Created by: <%= business.user.first_name %> </p> 
-      <p> Region: <%= business.region%></p>
-      <p> Category: <%= business.category %></p>
-     
-      <div class="absolute top-0 right-0 mt-2 mr-2">
-        <%= link_to "View Business", business_path(business), class: "btn btn-danger" %>
-        <%= link_to "Edit", edit_business_path(business) %> 
-        <%= link_to 'Delete', business, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <h1>Businesses in need of your help</h1>
+  <%= link_to 'Want to Advertise your business?', new_business_path, class: "btn btn-light btn-lg my-2" %>
+  <div class="card-group">
+    <%= @businesses.each do |business| %>
+      <div class="card" >
+        <%= image_tag business.picture, class: "card-img-top" %>
+        <div class="card-body">
+          <h3 class="card-title"><%= business.business_name %></h3>
+          <p class="card-text">Created by: <%= business.user.first_name %> </p> 
+          <p class="card-text"> Region: <%= business.region%></p>
+          <p class="card-text"> Category: <%= business.category %></p>
+        
+          
+            <%= link_to "View Business", business_path(business), class: "card-link" %>
+            <%= link_to "Edit", edit_business_path(business), class: "card-link" %> 
+            <%= link_to 'Delete', business, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
-  <%= link_to 'Want to Advertise your business?', new_business_path, class: "btn btn-default" %>
+    <% end %>
+  </div>
+  <div class="absolute top-0 right-0 mt-2 mr-2">
   
+  </div>
 </div>

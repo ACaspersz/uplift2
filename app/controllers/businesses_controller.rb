@@ -1,6 +1,10 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :update, :destroy]
   
+  def index
+    @businesses = Business.all
+  end
+  
   def search
     # search bar and category filter
     if params[:query].present? && params[:category].present?
@@ -18,14 +22,15 @@ class BusinessesController < ApplicationController
       @businesses = Business.all
     end 
 
-    # sort posts by newest to oldest
-    @businesses = @businesses.sort_by { |business| business.created_at }.reverse!
+    # # sort posts by newest to oldest
+    # @businesses = @businesses.sort_by { |business| business.created_at }.reverse!
     
   end
  
 
   def new
       @business = Business.new
+      @business.user_id = current_user.id
   end
 
   def create

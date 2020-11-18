@@ -52,17 +52,13 @@
           <div>
             <%= submit_tag "Search", class: 'btn btn-info glyphicon glyphicon-search my-2 my-sm-0' %>
           </div>
-
-          <%# <%= form_tag(action= '/businesses/results', :method => "get", class: 'form-inline my-2 my-lg-0') do %>  
-              <%# <%= search_field_tag type: "submit", :search, params[:search], placeholder: "Search", class: "form-control mr-sm-2" %> 
-              <%# <%= button_tag "Go", :class => 'btn btn-info glyphicon glyphicon-search my-2 my-sm-0',:name => nil %> 
-          <%# <% end %>  
         </div>
       </nav>
 
   </head>
 
   <body>
+  <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

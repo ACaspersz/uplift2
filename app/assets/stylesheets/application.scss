@@ -74,11 +74,19 @@ body {
   
 }
 
+.form-container {
+  width: 70%;
+  padding-right: 30px;
+  padding-left: 30px;
+  text-align: center;
+  justify-content: center;
+}
+
 .image {
   display: flex;
   background-size: cover;
   background-position: center;
-  width: 100%;
+  width: 50%;
   
   align-items: center;
 }
