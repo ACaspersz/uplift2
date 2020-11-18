@@ -1,9 +1,8 @@
 <div class="container">
 <h1>Businesses in need of your help</h1>
 
-<%= link_to 'Want to Advertise your business?', new_business_path, class: "btn btn-default" %>
 
- <% @businesses.each do |business| %>
+ <%= businesses_url.each do |business| %>
  
  <%= image_tag business.picture, class: "image" if business.picture.attached? %>
  
@@ -23,5 +22,6 @@
       
     </div>
   <% end %>
+  <%= link_to 'Want to Advertise your business?', new_business_path, class: "btn btn-default" %>
   </div>
 

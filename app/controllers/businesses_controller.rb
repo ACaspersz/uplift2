@@ -1,13 +1,26 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :update, :destroy]
   
-  def index
-    if params[:query].present?
-      businesses = Business.search(params[:query])
-      found_posts = Business
+  def search
+    # search bar and category filter
+    if params[:query].present? && params[:category].present?
+      found_businesses = Business.search(params[:query])
+      @businesses = found_businesses.select { |business| p business.category_ids.select { |id| id == params[:category].to_i }.any? }
+
+    elsif params[:query].present? && params[:category].blank?
+      @businesses = Business.search(params[:query])
+
+    elsif params[:query].blank? && params[:category].present?
+      @businesses = Business.all.select { |business| p business.category_ids.select { |id| id == params[:category].to_i }.any? }
+
     else
+      # @posts = Post.all.order(created_at: :desc)
       @businesses = Business.all
-    end
+    end 
+
+    # sort posts by newest to oldest
+    @businesses = @businesses.sort_by { |business| business.created_at }.reverse!
+    
   end
  
 
@@ -34,14 +47,14 @@ class BusinessesController < ApplicationController
     end
   end
   
-  def search
-    if params[:search].blank?  
-      redirect_to(root_path, alert: "Empty field!") and return  
-    else  
-      @parameter = params[:search].downcase  
-      @results = Business.all.where("lower(name) LIKE :search", search: @businesses)  
-    end
-  end
+  # def search
+  #   if params[:search].blank?  
+  #     redirect_to(root_path, alert: "Empty field!") and return  
+  #   else  
+  #     @parameter = params[:search].downcase  
+  #     @results = Business.all.where("lower(name) LIKE :search", search: @businesses)  
+  #   end
+  # end
 
   def show
       

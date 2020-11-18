@@ -11,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def after_sign_up_path_for(resource)
-        "/businesses/index"
+        "/home/index"
       end
    
       def after_inactive_sign_up_path_for(resource)
