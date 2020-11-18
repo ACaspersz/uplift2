@@ -36,9 +36,7 @@ require 'faker'
             cause = Cause.new
             cause.cause_name = "Door replacing"
             cause.donation_goal = Faker::Number.between(from: 100, to: 50000)
-            cause.save
-            
-            
+            cause.save 
         end
     end
 end

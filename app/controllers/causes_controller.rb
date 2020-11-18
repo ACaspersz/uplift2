@@ -45,8 +45,7 @@ class CausesController < ApplicationController
   def show
   end
 
-  def profile
-  end 
+  
     
   def edit
     respond_to do |format|

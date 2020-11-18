@@ -8,32 +8,16 @@ class UsersController < ApplicationController
         end
       
         def show
-          
 
         end
-  
-        def search
-          if params[:search].blank?  
-            redirect_to(root_path, alert: "Empty field!") and return  
-          else  
-            @parameter = params[:search].downcase  
-            @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
-          end
-        end
-      
-        def new
-          @cause = Cause.new
-        end
-      
+
         def edit
         end
   
-        def profile
-        end 
+        # def profile
+        # end 
       
-        def create
-          
-        end
+        
       
         def update
           respond_to do |format|
@@ -55,14 +39,14 @@ class UsersController < ApplicationController
           end
         end
       
-        private
-          def set_cause
-            @cause = Cause.find(params[:id])
-          end
+        # private
+        #   def set_cause
+        #     @cause = Cause.find(params[:id])
+        #   end
       
-          def cause_params
-            params.require(:cause).permit(:business_name, :region, :description, :donation_goal)
-          end
+        #   def cause_params
+        #     params.require(:cause).permit(:business_name, :region, :description, :donation_goal)
+        #   end
   
 
 end
