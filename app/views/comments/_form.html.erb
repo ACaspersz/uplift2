@@ -1,14 +1,14 @@
-<p>New comment</p>
+
 <%= form_with(model: [ @cause, @cause.comments.build ], url: business_cause_comments_path(@cause.business, @cause), method: "post", local: true) do |form| %>
   <%# <p>
     <%= form.label :commenter %><br>
     <%# <%= form.text_field :commenter %>
   <%# </p> %> 
-  <p>
+  <p class = "card-top">
     <%= form.label :description %><br>
     <%= form.text_area :description %>
   </p>
-  <p>
+  <p class = "btn btn-light btn-lg my-2">
     <%= form.submit %>
   </p>
 <% end %>
