@@ -4,6 +4,7 @@ class BusinessesController < ApplicationController
   def index
     if params[:query].present?
       businesses = Business.search(params[:query])
+      found_posts = Business
     else
       @businesses = Business.all
     end
